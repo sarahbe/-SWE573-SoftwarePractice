@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-4.2.xsd
+  http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd ">
+
+	<!-- telling container to take care of annotations stuff -->
+	<!-- Spring should automatically wire values into properties, methods, and 
+		constructors. -->
+	<context:annotation-config />
+
+
+	<!-- declaring base package -->
+	<context:component-scan base-package="com.foodcoop" />
+
+	<!-- adding view resolver to show jsp's on browser -->
+	<bean
+		id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property
+			name="prefix"
+			value="/WEB-INF/jsp/" />
+		<property
+			name="suffix"
+			value=".jsp" />
+	</bean>
+
+	<!-- Our css Files -->
+	<mvc:resources
+		mapping="/resources/**"
+		location="/resources/" />
+	<mvc:annotation-driven />
+
+
+	<!-- Error messages -->
+	<bean
+		id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+
+		<property
+			name="basename"
+			value="/WEB-INF/messages" />
+
+	</bean>
+
+
+	<!-- declare beans -->
+	<bean
+		id="userDao"
+		class="com.foodcoop.dao.UserDaoImpl" />
+	<bean
+		id="userService"
+		class="com.foodcoop.services.UserServiceImpl" />
+
+
+	<!-- declare datasource bean -->
+	<bean
+		id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property
+			name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property
+			name="url"
+			value="jdbc:mysql://db4free.net:3306/foodcoop" />
+		<property
+			name="username"
+			value="sarahbe" />
+		<property
+			name="password"
+			value="Susu123" />
+	</bean>
+</beans>
