@@ -43,7 +43,6 @@ function validateRegistration(form) {
 function validateEmail(email, msg) {  
 	var re_mail = /^([a-zA-Z0-9_.-])+@boun.com.tr+$/;  
 	if (!re_mail.test(email.value)) {  
-	//alert(msg);  
 	document.getElementById('errorEmail').innerHTML= msg;
 	email.focus();  
 	email.select();  
@@ -54,7 +53,6 @@ function validateEmail(email, msg) {
 	
 function validateString(field, msg, error) {  
 	if (!field.value) {  
-	//alert(msg);  
 	 document.getElementById(error).innerHTML=msg;
 	field.focus();  
 	field.select();  

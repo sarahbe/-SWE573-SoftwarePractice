@@ -4,7 +4,7 @@ pageEncoding="ISO-8859-1" %>
 <mt:myTemplate title="Products">
 <jsp:attribute name="content">
  
- <td colspan="2"><a href="getList">Add New Product</a></td>
+ <td colspan="2"><a href="newProduct">Add New Product</a></td>
 <div class="row">
 	
 	<div class="col-md-4">

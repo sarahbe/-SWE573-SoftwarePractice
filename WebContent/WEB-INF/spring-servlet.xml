@@ -60,13 +60,37 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd ">
 		id="userService"
 		class="com.foodcoop.services.UserServiceImpl" />
 
-<bean
+	<bean
 		id="userRoleDao"
 		class="com.foodcoop.dao.UserRoleDaoImpl" />
 	<bean
 		id="userRoleService"
 		class="com.foodcoop.services.UserRoleServiceImpl" />
 
+	<bean
+		id="categoryDao"
+		class="com.foodcoop.dao.CategoryDaoImpl" />
+
+	<bean
+		id="categoryService"
+		class="com.foodcoop.services.CategoryServiceImpl" />
+
+
+	<bean
+		id="productDao"
+		class="com.foodcoop.dao.ProductDaoImpl" />
+
+	<bean
+		id="productService"
+		class="com.foodcoop.services.ProductServiceImpl" />
+
+<bean
+		id="producerDao"
+		class="com.foodcoop.dao.ProducerDaoImpl" />
+
+	<bean
+		id="producerService"
+		class="com.foodcoop.services.ProducerServiceImpl" />
 
 
 	<!-- declare datasource bean -->
