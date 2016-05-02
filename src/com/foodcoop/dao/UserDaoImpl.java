@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
  public void insertData(User user) {
 
   String sql = "INSERT INTO user "
-    + "( registerationdate, firstname,lastname, gender, email, password, birthyear, active) VALUES (NOW(),:firstname, :lastname,:gender ,:email, :password,:birthyear,0)";
+    + "( registerationdate, firstname,lastname, gender, email, password, birthyear, active) VALUES (NOW(),:firstname, :lastname,:gender ,:email, :password,:birthyear,1)";
 
  // JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 

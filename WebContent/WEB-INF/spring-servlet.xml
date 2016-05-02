@@ -93,6 +93,23 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd ">
 		class="com.foodcoop.services.ProducerServiceImpl" />
 
 
+<bean
+		id="unitDao"
+		class="com.foodcoop.dao.UnitDaoImpl" />
+
+	<bean
+		id="unitService"
+		class="com.foodcoop.services.UnitServiceImpl" />
+		
+		
+		<bean
+		id="stockDao"
+		class="com.foodcoop.dao.StockDaoImpl" />
+
+	<bean
+		id="stockService"
+		class="com.foodcoop.services.StockServiceImpl" />
+
 	<!-- declare datasource bean -->
 	<bean
 		id="dataSource"

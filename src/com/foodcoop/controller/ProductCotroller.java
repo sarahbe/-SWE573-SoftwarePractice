@@ -28,9 +28,18 @@ public class ProductCotroller {
 	 @Autowired 
 	 ProducerService producerService;
 	
-	   @RequestMapping(value="/products",method = RequestMethod.GET)
-	    public String viewProductList(Map<String, Object> model) {
-	           return "/products";
+	   @RequestMapping(value="/products")
+	    public ModelAndView viewProductList(Map<String, Object> model) {
+		   Map<String, List> map = new HashMap<String, List>();
+		   List<Product> productList = productService.getProductList();
+		   
+		   for(Product item: productList)
+		   {
+			   item.getProducerName();
+		   }
+		   
+		   map.put("productList", productList);
+	           return new ModelAndView("products", "map", map);
 	    }
 	   
 	   @RequestMapping("/newProduct")

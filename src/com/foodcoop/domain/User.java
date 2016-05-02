@@ -20,6 +20,10 @@ public class User implements Serializable  {
 	private int birthYear;
 	private boolean active;
 	private String profilePicture;
+	private boolean memberActive;
+	private boolean adminActive;
+	private boolean salerActive; 
+	private boolean stockerActive; 
 
 	public int getUserId() {
 		return id;
@@ -101,4 +105,39 @@ public class User implements Serializable  {
 	public void setRegisterationDate(Date registerationDate) {
 		this.registerationDate = registerationDate;
 	}
+	
+	public boolean getMemberActive() {
+		return this.memberActive;
+	}
+
+	public void setMemberActive(boolean memberActive) {
+		this.memberActive = memberActive;
+	}
+
+	public boolean getAdminActive() {
+		return this.adminActive;
+	}
+
+	public void setAdminActive(boolean adminActive) {
+		this.adminActive = adminActive;
+	}
+
+
+	public boolean getSalerActive() {
+		return this.salerActive;
+	}
+
+	public void setSalerActive(boolean salerActive) {
+		this.salerActive = salerActive;
+	}
+
+
+	public boolean getStockerActive() {
+		return this.stockerActive;
+	}
+
+	public void setStockerActive(boolean stockerActive) {
+		this.stockerActive = stockerActive;
+	}
+
 }

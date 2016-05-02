@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.foodcoop.domain.User;
+import com.foodcoop.services.UserRoleService;
 import com.foodcoop.services.UserService;
 
 @Controller
@@ -18,6 +19,9 @@ public class HomePageController {
 
  @Autowired
  UserService userService;
+ 
+ @Autowired 
+ UserRoleService userRoleService;
 
  //The @RequestMapping annotation on the methods use the value attribute to map the method to a path.
  //The beginning of the path is given by context:component-scan
@@ -86,8 +90,27 @@ public class HomePageController {
  }
  
  @RequestMapping("/approve")
- public String approveUser(@RequestParam String id) {
-  userService.approveUser(id);
+ public String approveUser(@RequestParam String id,@RequestParam boolean active) {	 
+  userService.grantUserRole(id,1, active);
   return "redirect:/getList";
  }
+ 
+ @RequestMapping("/seller")
+ public String setSeller(@RequestParam String id,@RequestParam boolean active) {
+ userService.grantUserRole(id, 3,active);
+  return "redirect:/getList";
+ }
+ 
+ @RequestMapping("/stocker")
+ public String setStocker(@RequestParam String id,@RequestParam boolean active) {
+	 userService.grantUserRole(id, 4, active);
+  return "redirect:/getList";
+ }
+ 
+ @RequestMapping("/admin")
+ public String setAdmin(@RequestParam String id,@RequestParam boolean active) {
+	 userService.grantUserRole(id, 2,active);
+  return "redirect:/getList";
+ }
+ 
 }

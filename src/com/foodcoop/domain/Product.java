@@ -1,8 +1,7 @@
 package com.foodcoop.domain;
 
-
 public class Product {
-
+	 
 	private int id;
 	private String productName;
 	private String description;
@@ -13,6 +12,7 @@ public class Product {
 	private String image;
 	private Boolean valid;
 	
+	private String producerName;
 	
 	public int getId() {
 		return id;
@@ -55,11 +55,13 @@ public class Product {
 	}
 
 	public int getIdProducer() {
+		
 		return this.idProducer;
 	}
 
 	public void setIdProducer(int idProducer) {
 		this.idProducer = idProducer;
+		//this.getProducerName();
 	}
 
 	public String getOrigin() {
@@ -87,5 +89,14 @@ public class Product {
 		this.valid = valid;
 	}
 
+    public String getProducerName()
+    { 	
+    	return this.producerName ;
+    }
+    
+    public void setProducerName(String producerName){
+    	this.producerName = producerName;
+    }
+   
 
 }

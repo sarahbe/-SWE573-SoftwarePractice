@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+import com.foodcoop.domain.User;
 import com.foodcoop.domain.UserRole;
 import com.foodcoop.jdbc.UserRoleRowMapper;
 
@@ -47,21 +48,46 @@ public class UserRoleDaoImpl implements UserRoleDao {
 	 @Override
 	 public void updateData(UserRole userRole) {
 
-	  String sql = "UPDATE user_role set idRole = ? where id = ?";
+	  String sql = "UPDATE user_role set idRole = ?, valid = ? where id = ?";
 	  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
 	  jdbcTemplate.update(
 	    sql,
-	    new Object[] { userRole.getRoleId() });
+	    new Object[] { userRole.getRoleId(),userRole.getValid(), userRole.getId() });
 
 	 }
 
+	 @Override
+	 public List<UserRole> getUserRoleListByUser(int idUser) {
+	  List<UserRole> userRoleList = new ArrayList<UserRole>();
+
+	  String sql = "select * from user_role where iduser = " + idUser;
+
+	  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+	  userRoleList = jdbcTemplate.query(sql, mapper);
+	  return userRoleList;
+	 }
+
+	 
 	 @Override
 	 public UserRole getUserRole(String id) {
 	  List<UserRole> userRoleList = new ArrayList<UserRole>();
 	  String sql = "select * from user_role where id= " + id;
 	  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 	  userRoleList = jdbcTemplate.query(sql, new UserRoleRowMapper());
+	  return userRoleList.get(0);
+	 }
+	 
+	 @Override
+	 public UserRole getUserRole(String idUser, int idRole) {
+	  List<UserRole> userRoleList = new ArrayList	<UserRole>();
+	  String sql = "select * from user_role where idUser = "+idUser + " and idrole = " +idRole ;
+	  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+	  userRoleList = jdbcTemplate.query(sql, mapper);
+	  if (userRoleList.isEmpty())
+	  {
+		  return new UserRole();
+	  }
 	  return userRoleList.get(0);
 	 }
 	 

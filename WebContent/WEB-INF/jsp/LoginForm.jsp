@@ -1,13 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<mt:myTemplate title="Sign in">
+<jsp:attribute name="content">
 	<div>
 		<table>
 			<form:form action="login" commandName="userForm">
@@ -33,5 +29,5 @@
 			</form:form>
 		</table>
 	</div>
-</body>
-</html>
+</jsp:attribute>
+</mt:myTemplate>

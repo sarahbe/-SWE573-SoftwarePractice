@@ -1,8 +1,11 @@
 package com.foodcoop.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.foodcoop.dao.UserRoleDao;
+import com.foodcoop.domain.Unit;
 import com.foodcoop.domain.UserRole;
 
 public class UserRoleServiceImpl implements UserRoleService{
@@ -22,6 +25,12 @@ public class UserRoleServiceImpl implements UserRoleService{
 	 }
 
 	 @Override
+	 public List<UserRole> getUserRoleListByUser(int idUser) {
+	  return userRoledao.getUserRoleListByUser( idUser);
+	 }
+
+	 
+	 @Override
 	 public UserRole getUserRole(String id) {
 	  return userRoledao.getUserRole(id);
 	 }
@@ -31,7 +40,5 @@ public class UserRoleServiceImpl implements UserRoleService{
 		 userRoledao.updateData(userRole);
 	  
 	 }
-	 
-	 
 
 }

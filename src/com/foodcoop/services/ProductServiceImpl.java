@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.foodcoop.dao.ProducerDao;
 import com.foodcoop.dao.ProductDao;
+import com.foodcoop.domain.Producer;
 import com.foodcoop.domain.Product;
 
 public class ProductServiceImpl implements ProductService{
@@ -12,6 +14,9 @@ public class ProductServiceImpl implements ProductService{
 	 @Autowired
 	 ProductDao productdao;
 
+	 @Autowired
+	 ProducerDao producerdao;
+	 
 	 @Override
 	 public void insertData(Product product) {
 		 productdao.insertData(product);
@@ -25,7 +30,17 @@ public class ProductServiceImpl implements ProductService{
 
 	 @Override
 	 public List<Product> getProductList() {
-	  return productdao.getProductList();
+	  //return productdao.getProductList();
+	  
+	  List<Product> productList = productdao.getProductList();
+	  
+	  for(Product product : productList ){
+	    	Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));	
+	    	product.setProducerName(producer.getProducerName());
+	  }
+	  
+	  return productList;
+	  
 	 }
 
 	 

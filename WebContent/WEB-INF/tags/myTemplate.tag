@@ -14,7 +14,6 @@
 
 <!-- Bootstrap -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <base href=" http://localhost:8080/FoodCoop/ "> 
 </head>
 <body>
@@ -38,6 +37,7 @@
 					<li><a href="register">Register</a></li>
 				    <li><a href="products">Products</a></li>
 				    <li><a href="producers">Producers</a></li>
+				     <li><a href="stock">Stocktaking</a></li>
 				</ul>
 			</div>
 		</div>
