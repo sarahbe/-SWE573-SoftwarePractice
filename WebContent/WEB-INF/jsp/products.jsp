@@ -10,12 +10,15 @@
 	   <c:forEach var="product" items="${map.productList}">
 	<div class="col-md-4">
 		<div class="row">
-			<img alt="something"
-			src="http://images.hepsiburada.net/assets/Mobilya/200/Mobilya_4344442.jpg">
+		 <a href="viewProduct?id=${product.id}"
+							style="display: block; height: 100%">
+			<img alt="${product.productName}" width="200px" height="220px"
+							src="${product.image}">
+			</a>
 		</div>	
 		<div class="row">
-			<h4 class="text-center">"${product.producerName}"</h4>
-			<h4><small>"${product.origin}"</small></h4>
+			<h4>${product.productName}</h4>
+			<h4><small>${product.producerName} -  ${product.origin}</small></h4>
 		</div>	
 	</div>
 	   </c:forEach>

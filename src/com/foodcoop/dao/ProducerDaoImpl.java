@@ -26,7 +26,7 @@ public class ProducerDaoImpl implements ProducerDao{
 	 public void insertData(Producer producer) {
 
 	  String sql = "INSERT INTO producer "
-	    + "( producerName, description) VALUES ( :producerName, :description)";
+	    + "( producerName, description , image) VALUES ( :producerName, :description, :image)";
 	  NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 
 	  jdbcTemplate.update(

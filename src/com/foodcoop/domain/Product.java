@@ -1,5 +1,7 @@
 package com.foodcoop.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Product {
 	 
 	private int id;
@@ -13,6 +15,7 @@ public class Product {
 	private Boolean valid;
 	
 	private String producerName;
+	private MultipartFile file;
 	
 	public int getId() {
 		return id;
@@ -97,6 +100,15 @@ public class Product {
     public void setProducerName(String producerName){
     	this.producerName = producerName;
     }
-   
+
+
+    public MultipartFile getFile()
+    { 	
+    	return this.file ;
+    }
+    
+    public void setFile(MultipartFile file){
+    	this.file = file;
+    }
 
 }

@@ -1,11 +1,15 @@
 package com.foodcoop.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Producer {
  private int id; 
  private String producerName; 
  private String description;
  private String image; 
  private Boolean valid;
+ 
+ private MultipartFile file;
  
  public int getId() {
 		return id;
@@ -47,5 +51,15 @@ public class Producer {
 	public void setValid(Boolean valid) {
 		this.valid = valid;
 	}
+
+	
+	   public MultipartFile getFile()
+	    { 	
+	    	return this.file ;
+	    }
+	    
+	    public void setFile(MultipartFile file){
+	    	this.file = file;
+	    }
 
 }

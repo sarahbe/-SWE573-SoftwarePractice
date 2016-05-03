@@ -6,7 +6,7 @@
 <mt:myTemplate title="New Producer">
 	<jsp:attribute name="content">
 <div>
- <form:form method="POST" action="insertProducer" modelAttribute="producer">  
+ <form:form method="POST" action="insertProducer" modelAttribute="producer" enctype="multipart/form-data" >  
       <table>  
        <tr>  
            <td><form:label path="producerName">Producer Name:</form:label></td>  
@@ -17,7 +17,11 @@
            <td><form:label path="description">Description</form:label></td>  
            <td><form:input path="description" /></td>  
        </tr>   
-        
+         <tr>
+       <td>
+         <input type="file" name="file"/> 
+       </td>
+       </tr>
 	   <tr>  
            <td>&nbsp;</td>  
            <td><input type="submit" value="SAVE" /></td>  

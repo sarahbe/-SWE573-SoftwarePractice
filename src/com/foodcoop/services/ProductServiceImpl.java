@@ -46,7 +46,11 @@ public class ProductServiceImpl implements ProductService{
 	 
 	 @Override
 	 public Product getProduct(String id) {
-	  return productdao.getProduct(id);
+	  Product product = productdao.getProduct(id);	 
+	  Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));	
+  	product.setProducerName(producer.getProducerName());
+	  return product;
+	// return productdao.getProduct(id);
 	 }
 
 	 @Override
