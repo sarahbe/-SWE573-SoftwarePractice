@@ -10,3 +10,5 @@ Food cooperative give members a chance to volunteer to help the coop. They will 
 * [ Design Document. ](https://github.com/sarahbe/-SWE573-SoftwarePractice/wiki/Design-Document)  
 * [Milestones](https://github.com/sarahbe/-SWE573-SoftwarePractice/wiki/Milestones)  
 * [Revised Project Plan](https://github.com/sarahbe/-SWE573-SoftwarePractice/wiki/Revised-Plan)
+  
+  
