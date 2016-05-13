@@ -37,7 +37,7 @@
 					<li><a href="register">Register</a></li>
 				    <li><a href="products">Products</a></li>
 				    <li><a href="producers">Producers</a></li>
-				     <li><a href="stock">Stocktaking</a></li>
+				     <li><a href="stock">Stock-taking</a></li>
 				</ul>
 			</div>
 		</div>
