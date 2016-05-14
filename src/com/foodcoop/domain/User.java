@@ -25,6 +25,8 @@ public class User implements Serializable  {
 	private boolean salerActive; 
 	private boolean stockerActive; 
 
+	private int idRole; 
+	
 	public int getUserId() {
 		return id;
 	}
@@ -140,4 +142,12 @@ public class User implements Serializable  {
 		this.stockerActive = stockerActive;
 	}
 
+	public int getIdRole() {
+		return idRole;
+	}
+
+	public void setIdRole(int idRole) {
+		this.idRole = idRole;
+	}
+	
 }

@@ -12,6 +12,6 @@ public interface UserService {
  public void updateData(User user);
  public void grantUserRole(String id, int idRole, boolean active);
  public User getUserByEmail(String email,String password);
-
+ public User getUserByEmail(String email);
 }
 

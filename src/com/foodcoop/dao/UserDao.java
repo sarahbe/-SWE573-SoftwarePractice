@@ -11,5 +11,6 @@ public interface UserDao {
  public User getUser(String id);
  public void activateUser(int id);
  public User getUserByEmail(String email,String password);
+ public User getUserByEmail(String email);
 }
 

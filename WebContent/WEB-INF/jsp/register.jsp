@@ -41,7 +41,7 @@ function validateRegistration(form) {
 }
 
 function validateEmail(email, msg) {  
-	var re_mail = /^([a-zA-Z0-9_.-])+@boun.com.tr+$/;  
+	var re_mail = /^([a-zA-Z0-9_.-])+@boun.edu.tr+$/;  
 	if (!re_mail.test(email.value)) {  
 	document.getElementById('errorEmail').innerHTML= msg;
 	email.focus();  

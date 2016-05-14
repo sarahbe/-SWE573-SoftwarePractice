@@ -2,18 +2,27 @@ package com.foodcoop.dao;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.sql.DataSource;
 
 import org.sfm.jdbc.spring.JdbcTemplateMapperFactory;
 import org.sfm.jdbc.spring.SqlParameterSourceFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.foodcoop.domain.User;
 //import com.foodcoop.jdbc.UserRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.authority.GrantedAuthorityImpl;
+//import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 public class UserDaoImpl implements UserDao {
 
@@ -100,6 +109,16 @@ public class UserDaoImpl implements UserDao {
      user = (User) jdbcTemplate.query(sql,mapper).get(0);
 	 return user;
  }
+ public User getUserByEmail(String email){
+	 User user = new User();
+	 String sql = "select * from user where active =1 and email = '"+ email + "'";
 
+	  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+   
+     user = (User) jdbcTemplate.query(sql,mapper).get(0);
+	 return user; 
+ }
+ 
+ 
 }
 

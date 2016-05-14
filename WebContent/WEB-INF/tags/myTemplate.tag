@@ -33,11 +33,16 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="">Home</a></li>
-					<li><a href="login">Login</a></li>
+					<c:if test="${pageContext.request.userPrincipal.name == null}">
+					<li><a href="auth/login">Login</a></li>
 					<li><a href="register">Register</a></li>
+						</c:if>
 				    <li><a href="products">Products</a></li>
 				    <li><a href="producers">Producers</a></li>
 				     <li><a href="stock">Stocktaking</a></li>
+				      <c:if test="${pageContext.request.userPrincipal.name != null}">
+   					  <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+						  </c:if>
 				</ul>
 			</div>
 		</div>
