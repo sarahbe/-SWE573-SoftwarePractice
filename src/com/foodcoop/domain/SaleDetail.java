@@ -1,13 +1,13 @@
 package com.foodcoop.domain;
 
-public class Stock {
+public class SaleDetail {
 
-	private int id;
-	private int idProduct;
-	private int idUnit;
+	private int id; 
+	private int idSale;
+	private int idProduct; 
+	private int idUnit; 
 	private double quantity;
-	
-	private Product product; 
+	private double price; 
 	
 	public int getId() {
 		return id;
@@ -17,6 +17,14 @@ public class Stock {
 		this.id = id;
 	}
 
+	public int getIdSale() {
+		return idSale;
+	}
+
+	public void setIdSale(int idSale) {
+		this.idSale = idSale;
+	}
+
 	public int getIdProduct() {
 		return idProduct;
 	}
@@ -24,6 +32,7 @@ public class Stock {
 	public void setIdProduct(int idProduct) {
 		this.idProduct = idProduct;
 	}
+	
 	public int getIdUnit() {
 		return idUnit;
 	}
@@ -38,13 +47,11 @@ public class Stock {
 	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
+
 	
-	public Product getProduct() {
-		return product;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-	
+
 }
