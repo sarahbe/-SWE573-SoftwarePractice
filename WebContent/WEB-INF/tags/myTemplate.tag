@@ -39,14 +39,10 @@
 						</c:if>
 				    <li><a href="products">Products</a></li>
 				    <li><a href="producers">Producers</a></li>
-<<<<<<< HEAD
-				     <li><a href="stock">Stocktaking</a></li>
 				      <c:if test="${pageContext.request.userPrincipal.name != null}">
    					  <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
 						  </c:if>
-=======
 				     <li><a href="stock">Stock-taking</a></li>
->>>>>>> eeba2b76125554668dc01bd80888a777a8d5238e
 				</ul>
 			</div>
 		</div>
@@ -58,6 +54,7 @@
 		<script src="resources/js/jquery.quicksearch.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resources/js/bootstrap.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	
 	<div class="container">
 	<jsp:invoke fragment="content"></jsp:invoke>

@@ -17,7 +17,7 @@
 	<!-- telling container to take care of annotations stuff -->
 	<!-- Spring should automatically wire values into properties, methods, and 
 		constructors. -->
-	<context:annotation-config />
+<!-- 	<context:annotation-config /> -->
 
 
 	<!-- declaring base package -->
@@ -141,6 +141,17 @@
 		id="stockService"
 		class="com.foodcoop.services.StockServiceImpl" />
 
+<bean
+		id="saledao"
+		class="com.foodcoop.dao.SaleDaoImpl" />
 
+	<bean
+		id="saleService"
+		class="com.foodcoop.services.SaleServiceImpl" />
+		
+		<bean
+		id="saledetaildao"
+		class="com.foodcoop.dao.SaleDetailDaoImpl" />
+		
 	
 </beans>
