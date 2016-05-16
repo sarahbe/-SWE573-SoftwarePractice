@@ -96,7 +96,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     
    // Check if this user has admin access 
    // We interpret Integer(1) as an admin user
-   if ( access.compareTo(1) == 0) {
+   if ( access.compareTo(2) == 0) {
     // User has admin access
   //  logger.debug("Grant ROLE_ADMIN to this user");
     authList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
