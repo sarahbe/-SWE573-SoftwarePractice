@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
       http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/security 
-   http://www.springframework.org/schema/security/spring-security.xsd">
+   http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
 	<!-- This is where we configure Spring-Security -->
 
@@ -17,29 +17,27 @@
         <intercept-url pattern="/index" access="isAnonymous()" />-->     
         <intercept-url pattern="/register" access="isAnonymous()" />
         <intercept-url pattern="/insert" access="isAnonymous()" />
-        <intercept-url pattern="/getList" access="isAnonymous()" />
-        <intercept-url pattern="/login" access="isAnonymous()" />
+        <intercept-url pattern="/getList" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/auth/login" access="isAnonymous()" />
         <intercept-url pattern="/logout" access="isAnonymous()" />
- 
- 
         <intercept-url pattern="/products" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
         <intercept-url pattern="/newProduct" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/sales" access="hasAnyRole('ROLE_ADMIN','ROLE_SALER')" />
+        <intercept-url pattern="/stock" access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKER')" />
         <intercept-url pattern="/producers" access="hasRole('ROLE_ADMIN')" />
      <!--  <intercept-url pattern="/other/**" access="isAuthenticated()" />
   --> 
         <access-denied-handler error-page="/auth/deniedPage" />
  
-        <form-login login-page='/login' login-processing-url="/j_spring_security_check"
+        <form-login login-page='/auth/login' login-processing-url="/j_spring_security_check"
             default-target-url="/" always-use-default-target="false"
-            authentication-failure-url="/login?error=true" username-parameter="email"
+            authentication-failure-url="/auth/login?error=true" username-parameter="email"
             password-parameter="password" />
  
         <logout logout-url="/logout" logout-success-url="/logoutSuccessful"
             delete-cookies="JSESSIONID" invalidate-session="true" />
  
     </http>
-    
-  
 
 	<authentication-manager>
 		  <authentication-provider user-service-ref="customUserDetailsService">
@@ -56,4 +54,3 @@
 	</authentication-manager>
 	<beans:bean id="customUserDetailsService"  class="com.foodcoop.services.CustomUserDetailsService"/> 
 </beans:beans>
- 
