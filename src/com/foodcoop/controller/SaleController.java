@@ -21,6 +21,7 @@ import com.foodcoop.domain.SaleDetail;
 import com.foodcoop.services.ProductService;
 import com.foodcoop.services.SaleService;
 
+
 @Controller
 public class SaleController {
 
@@ -46,20 +47,22 @@ public class SaleController {
 	 
 
 		@RequestMapping(value = "/saveInvoice",method = RequestMethod.POST)
-		public String inserData(@ModelAttribute Product product) {
-			if (product != null) {
-					Sale sale = new Sale();
-					sale.setTotal(10);
-					List<SaleDetail> saleDetailsList = new ArrayList<SaleDetail>();
-					SaleDetail detail = new SaleDetail();
-					saleService.insertData(sale);
-					detail.setQuantity(1);
-					detail.setIdProduct(product.getId());
-					detail.setIdSale(sale.getId());
-					saleDetailsList.add(detail);
-					saleService.insertDetail(saleDetailsList);
+		public String inserData(@ModelAttribute("sale") Sale sale) {
+			ArrayList<SaleDetail> zz = sale.getSaleDetail();
 			
-			}
+//			if (product != null) {
+//					Sale sale = new Sale();
+//					sale.setTotal(10);
+//					List<SaleDetail> saleDetailsList = new ArrayList<SaleDetail>();
+//					SaleDetail detail = new SaleDetail();
+//					saleService.insertData(sale);
+//					detail.setQuantity(1);
+//					//detail.setIdProduct(product.getId());
+//					detail.setIdSale(sale.getId());
+//					saleDetailsList.add(detail);,
+//					saleService.insertDetail(saleDetailsList);
+//			
+//			}
 
 			return "redirect:/sales";
 
