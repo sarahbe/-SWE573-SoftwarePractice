@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
 <mt:myTemplate title="Sign in">
 	<jsp:attribute name="content">
+	
+	
 		<h3>	Welcome : ${pageContext.request.userPrincipal.name}</h3>
 	<div id="login-error"> ${error} </div>
 	<div>
