@@ -12,7 +12,10 @@ public class Product {
 	private int idProducer;
 	private String origin;
 	private String image;
-	private Boolean valid;
+	private Boolean valid;	
+	private int idUnit;
+	private double price;
+	
 	
 	private String producerName;
 	private MultipartFile file;
@@ -101,7 +104,22 @@ public class Product {
     	this.producerName = producerName;
     }
 
+    public int getIdUnit() {	
+		return this.idUnit;
+	}
 
+	public void setIdUnit(int idUnit) {
+		this.idUnit = idUnit;
+	}
+
+	public double getPrice() {	
+		return this.price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
     public MultipartFile getFile()
     { 	
     	return this.file ;
