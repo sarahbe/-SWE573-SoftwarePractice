@@ -38,9 +38,6 @@ pageEncoding="ISO-8859-1" %>
 								</td>
 								
 								
-								<td>
-<c:out value="${map.producer.origin}" />
-</td>
 							</tr>
 <tr>
 								<td>

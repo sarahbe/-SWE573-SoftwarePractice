@@ -64,7 +64,7 @@ public class ProducerController implements ResourceLoaderAware{
 		return "redirect:/producers";
 	}
 	
-		@RequestMapping(value="/viewProducer" , method = RequestMethod.POST)
+		@RequestMapping(value="/viewProducer" )
 		public ModelAndView viewProducer(@RequestParam String id,
 				@ModelAttribute Producer producer) {
 
