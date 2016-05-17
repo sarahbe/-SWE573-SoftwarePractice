@@ -113,9 +113,27 @@ public class UserServiceImpl implements UserService  {
 	public User getUserByEmail(String email) {
 		
 		User user = userdao.getUserByEmail(email);
-		UserRole userRole = userRoleDao
-				.getUserRoleListByUser(user.getUserId()).get(0);
-		user.setIdRole(userRole.getRoleId());
+		List<UserRole> userroleList = userRoleDao
+				.getUserRoleListByUser(user.getUserId());
+		for (UserRole roleItem : userroleList) {
+			switch (roleItem.getRoleId()) {
+			case 1:
+				user.setMemberActive(roleItem.getValid());
+				break;
+			case 2:
+				user.setAdminActive(roleItem.getValid());
+				;
+				break;
+			case 3:
+				user.setSalerActive(roleItem.getValid());
+				;
+				break;
+			case 4:
+				user.setStockerActive(roleItem.getValid());
+				;
+				break;
+			}
+		}
 		return user;
 	}
 	
