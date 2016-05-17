@@ -24,28 +24,37 @@
 					});
 
 	$(document).ready(function() {
+		var i = 0;
 		$(".add").click( function() {
 			var item = $(this).parent().clone();//create a deep copy of the object
 			item.find(".add").remove(); //remove add button
 		 	var current = $(this).parent().data("item");
+			var price = $(this).parent().children(".price").html();
+			var $basket = $("#basket").find("[data-item='"+ current+ "']");
 			//if the item is already in the basket
-			if ($("#basket").find("[data-item='"+ current+ "']").length > 0) {
-				$("#basket").find("[data-item='" + current + "']").find(".counter").html(
+			if ($basket.length > 0) {
+				var quantity = 0;
+				$basket.find(".counter").html(
 			//increment counter
 				function(i, val) {
-			        return +val + 1
+					quantity = +val + 1;
+			        return quantity;
 			      });
+				$(".quantity").val(quantity);
 			} //end if statement
 			else {
 			 
 		$('#basket').append("<div class='list-group-item row vertical-align item' data-item='" + current + "'>"
 		+ item.html()+ "<div class='counter col-md-2'>1</div></div>");
-		$('#basket').append("<input type='hidden' path='product.id' name='"+ current+ "' value='"
-		+ item.find(".price .number").html()+ "'>");
+		$('#basket').append("<input type='hidden' path='id' name='saleDetail[" + i + "].idProduct' value='"+ current +"'>");
+		$('#basket').append("<input type='hidden' path='price' name='saleDetail[" + i + "].price' value='"+ price +"'>");
+		$('#basket').append("<input type='hidden' path='quantity' class='quantity'  name='saleDetail[" + i + "].quantity' value='"+ 1 +"'>");
+		i+=1;
 		}
 		});
+			
 		
-		});
+	});
 				</script>
 
     
@@ -74,7 +83,7 @@
 			src="http://organikerzincanbali.com/images/bal/bal5.jpg">	
 		 	    <h4 id="search" class="col-md-4 title">${product.productName}</h4>
 				<h6 class="col-md-3">Adet</h6>
-				<h6 class="col-md-2 price">10 TL</h6>
+				<h6 class="col-md-2 price">${product.price}</h6>
 		     <button class="col-md-2 add">Add To Basket</button>
 		 </div>
 		 </c:forEach>
@@ -93,7 +102,7 @@
 
 <!-- Basket  -->
 	<div class="row rcorners2">
-		<form:form id="wasbasket" method="post" action="saveInvoice" modelAttribute="product" >
+		<form:form id="wasbasket" method="post" action="saveInvoice" modelAttribute="sale" >
 		<div class="list-group" id="basket">
 		
 		

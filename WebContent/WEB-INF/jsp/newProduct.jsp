@@ -6,7 +6,8 @@
 <mt:myTemplate title="New Product">
 	<jsp:attribute name="content">
 <div>
- <form:form method="POST" action="insertProduct" enctype="multipart/form-data"  modelAttribute="product" >  
+ <form:form method="POST" action="insertProduct"
+				enctype="multipart/form-data" modelAttribute="product">  
       <table>  
        <tr>  
            <td><form:label path="productName">Product Name:</form:label></td>  
@@ -40,9 +41,23 @@
            <td><form:label path="origin">Origin:</form:label></td>  
            <td><form:input path="origin" /></td>  
        </tr> 
+         <tr>  
+           <td><form:label path="idUnit">Unit:</form:label></td>  
+           <td> <form:select path="idUnit"
+								cssStyle="width: 150px;">      
+       <option value="-1">Select Unit</option>  
+       <c:forEach items="${map.units}" var="unit">  
+        <option value="${unit.id}">${unit.unit}</option>  
+       </c:forEach>  
+      </form:select>  </td>  <td colspan="2"><a href="unit">Add New Unit</a></td>
+       </tr>  
+          <tr>  
+           <td><form:label path="price">Price:</form:label></td>  
+           <td><form:input type="number" path="price" /></td>  
+       </tr> 
        <tr>
        <td>
-         <input type="file" name="file"/> 
+         <input type="file" name="file" /> 
        </td>
        </tr>
 	   <tr>  

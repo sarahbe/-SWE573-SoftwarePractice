@@ -29,6 +29,7 @@ import com.foodcoop.domain.User;
 import com.foodcoop.services.CategoryService;
 import com.foodcoop.services.ProducerService;
 import com.foodcoop.services.ProductService;
+import com.foodcoop.services.UnitService;
 
 @Controller
 public class ProductCotroller implements ResourceLoaderAware {
@@ -41,6 +42,9 @@ public class ProductCotroller implements ResourceLoaderAware {
 	@Autowired
 	ProducerService producerService;
 
+	@Autowired
+	UnitService unitService;
+	
 	private ResourceLoader resourceLoader;
 
 	@RequestMapping(
@@ -63,6 +67,7 @@ public class ProductCotroller implements ResourceLoaderAware {
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("categories", categoryService.getCategoryList());
 		map.put("producers", producerService.getProducerList());
+		map.put("units", unitService.getUnitList());
 		return new ModelAndView("newProduct", "map", map);
 	}
 

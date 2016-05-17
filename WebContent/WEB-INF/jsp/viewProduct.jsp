@@ -26,7 +26,7 @@
 <table>
 <tr>
 								<td>
-<h4>Producer   </h4>
+<h4>&nbsp;&nbsp;Producer  &nbsp;&nbsp; </h4>
 								</td>
 								<td>
 <c:out value="${map.product.producerName}" />
@@ -34,7 +34,7 @@
 							</tr>
 							<tr>
 								<td>
-<h4>Origin   </h4>
+<h4>&nbsp;&nbsp;Origin &nbsp;&nbsp;  </h4>
 								</td>
 								
 								
@@ -44,7 +44,7 @@
 							</tr>
 <tr>
 								<td>
-<h4>Description   </h4>
+<h4>&nbsp;&nbsp;Description  &nbsp;&nbsp; </h4>
 								</td>
 								
 								
@@ -52,10 +52,22 @@
 <c:out value="${map.product.description}" />
 </td>
 							</tr>
+							<tr>
+								<td>
+<h4>&nbsp;&nbsp;Price &nbsp;&nbsp;  </h4>
+								</td>
+								
+								
+								<td>
+<c:out value="${map.product.price}" /> TL
+</td>
+							</tr>
 						</table>
 					</td>
 </tr>
 </table>
+
+<h3> Comments and rating to be added in version 2 </h3>
 </form:form>
 
 </jsp:attribute>

@@ -24,6 +24,6 @@ public class CategoryController {
 	 public String inserData(@ModelAttribute Category category) {
 	  if (category != null)
 		  categoryService.insertData(category);
-	  return "redirect:/category";
+	  return "redirect:/newProduct";
 	 }
 }

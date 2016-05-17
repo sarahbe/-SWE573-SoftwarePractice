@@ -1,5 +1,6 @@
 package com.foodcoop.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Sale {
@@ -12,6 +13,17 @@ public class Sale {
 	private double discount;
 	private double net;
 
+	//
+	private ArrayList<SaleDetail> saleDetail;
+	
+	public ArrayList<SaleDetail> getSaleDetail() {
+		return saleDetail;
+	}
+	
+	public void setSaleDetail(ArrayList<SaleDetail> saleDetail){
+		this.saleDetail = saleDetail;		
+	}
+	
 	public int getId() {
 		return id;
 	}

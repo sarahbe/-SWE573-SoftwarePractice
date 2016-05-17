@@ -34,7 +34,7 @@
             authentication-failure-url="/auth/login?error=true" username-parameter="email"
             password-parameter="password" />
  
-        <logout logout-url="/logout" logout-success-url="/logoutSuccessful"
+        <logout logout-url="/auth/logout" logout-success-url="/auth/logoutSuccessful"
             delete-cookies="JSESSIONID" invalidate-session="true" />
  
     </http>

@@ -24,6 +24,6 @@ public class UnitController {
 	 public String inserData(@ModelAttribute Unit unit) {
 	  if (unit != null)
 		  unitService.insertData(unit);
-	  return "redirect:/unit";
+	  return "redirect:/newProduct";
 	 }
 }

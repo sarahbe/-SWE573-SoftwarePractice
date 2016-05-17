@@ -25,7 +25,7 @@ public class ProductDaoImpl implements ProductDao{
 	 public void insertData(Product product) {
 
 	  String sql = "INSERT INTO product "
-	    + "( productName, description,idcategory, rate, idproducer, origin, image) VALUES ( :productName, :description,:idcategory, :rate, :idproducer, :origin, :image)";
+	    + "( productName, description,idcategory, rate, idproducer, origin,price, idunit, image) VALUES ( :productName, :description,:idcategory, :rate, :idproducer, :origin,:price,:idunit, :image)";
 	  NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 
 	  jdbcTemplate.update(
