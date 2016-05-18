@@ -32,13 +32,7 @@ pageEncoding="ISO-8859-1" %>
 <c:out value="${map.producer.producerName}" />
 </td>
 							</tr>
-							<tr>
-								<td>
-<h4>Origin   </h4>
-								</td>
-								
-								
-							</tr>
+
 <tr>
 								<td>
 <h4>Description   </h4>
@@ -54,6 +48,6 @@ pageEncoding="ISO-8859-1" %>
 </tr>
 </table>
 </form:form>
-
+<h3> Geometric location to be added in version 2 </h3>
 </jsp:attribute>
 </mt:myTemplate>
