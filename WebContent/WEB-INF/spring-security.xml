@@ -27,7 +27,7 @@
         <intercept-url pattern="/producers" access="hasRole('ROLE_ADMIN')" />
      <!--  <intercept-url pattern="/other/**" access="isAuthenticated()" />
   --> 
-        <access-denied-handler error-page="/auth/deniedPage" />
+        <access-denied-handler error-page="/deniedPage" />
  
         <form-login login-page='/login' login-processing-url="/j_spring_security_check"
             default-target-url="/" always-use-default-target="false"
