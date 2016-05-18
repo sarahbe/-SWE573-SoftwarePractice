@@ -38,12 +38,15 @@
 					<li><a href="register">Register</a></li>
 						</c:if>
 				    <li><a href="products">Products</a></li>
-				    <li><a href="producers">Producers</a></li>
+				    <li><a href="producers">Producers</a></li>				
 				      <c:if test="${pageContext.request.userPrincipal.name != null}">
+				     <li><a href="sales">Sales</a></li>
+   					 <li><a href="getList">User List</a></li>
    					  <li><a href="logout">Logout</a></li>
 						  </c:if>
 <!-- 				     <li><a href="stock">Stock-taking</a></li> -->
-				     <li><a href="sales">Sales</a></li>
+			     
+				     
 				</ul>
 			</div>
 		</div>

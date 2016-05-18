@@ -99,11 +99,6 @@ function validateString(field, msg, error) {
 						<td> </td>
 						<td><input type="submit" value="Save" /></td>
 					</tr>
-					<tr>
-
-						<td colspan="2"><a href="getList">Click Here to See User
-								List</a></td>
-					</tr>
 				</table>
 			</form:form>
 		</div>
