@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.foodcoop.services.UserService;
 
+
+//@RequestMapping("/auth")
 @Controller
-@RequestMapping("/auth")
 public class LoginLogoutController {
 
 	@Autowired

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.foodcoop.domain.User;
+import com.foodcoop.domain.UserRole;
 import com.foodcoop.services.UserRoleService;
 import com.foodcoop.services.UserService;
 
@@ -46,9 +47,11 @@ public class HomePageController {
  
  @RequestMapping( "/insert")
  public String inserData(@ModelAttribute User user) {
-  if (user != null)
+  if (user != null){
    userService.insertData(user);
-  return "redirect:/getList";
+
+  }
+  return "redirect:/";
  }
 
  @RequestMapping("/getList")

@@ -14,7 +14,7 @@
 
 <!-- Bootstrap -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<base href=" http://localhost:8080/FoodCoop/ "> 
+<!-- <base href=" http://localhost:8080/FoodCoop/ ">  -->
 </head>
 <body>
 <header class="navbar navbar-static-top" >
@@ -34,13 +34,13 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="">Home</a></li>
 					<c:if test="${pageContext.request.userPrincipal.name == null}">
-					<li><a href="auth/login">Login</a></li>
+					<li><a href="login">Login</a></li>
 					<li><a href="register">Register</a></li>
 						</c:if>
 				    <li><a href="products">Products</a></li>
 				    <li><a href="producers">Producers</a></li>
 				      <c:if test="${pageContext.request.userPrincipal.name != null}">
-   					  <li><a href="auth/logout">Logout</a></li>
+   					  <li><a href="logout">Logout</a></li>
 						  </c:if>
 <!-- 				     <li><a href="stock">Stock-taking</a></li> -->
 				     <li><a href="sales">Sales</a></li>
