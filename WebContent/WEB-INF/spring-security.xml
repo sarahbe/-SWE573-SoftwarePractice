@@ -17,14 +17,14 @@
         <intercept-url pattern="/index" access="isAnonymous()" />-->     
         <intercept-url pattern="/register" access="isAnonymous()" />
         <intercept-url pattern="/insert" access="isAnonymous()" />
-        <intercept-url pattern="/getList" access="hasRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/auth/login" access="isAnonymous()" />
+<!--         <intercept-url pattern="/getList" access="hasRole('ROLE_ADMIN')" /> -->
+        <intercept-url pattern="/login" access="isAnonymous()" />
         <intercept-url pattern="/logout" access="isAnonymous()" />
         <intercept-url pattern="/products" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
         <intercept-url pattern="/newProduct" access="hasAnyRole('ROLE_ADMIN')" />
         <intercept-url pattern="/sales" access="hasAnyRole('ROLE_ADMIN','ROLE_SALER')" />
         <intercept-url pattern="/stock" access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKER')" />
-        <intercept-url pattern="/producers" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/producers" access="hasRole('ROLE_USER')" />
      <!--  <intercept-url pattern="/other/**" access="isAuthenticated()" />
   --> 
         <access-denied-handler error-page="/deniedPage" />

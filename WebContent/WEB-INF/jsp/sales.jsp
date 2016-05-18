@@ -80,7 +80,7 @@
 		 <div class="list-group-item row vertical-align item"
 								data-item="${product.id}">
 		 <img class="img-circle col-md-2" height="64px"
-			src="http://organikerzincanbali.com/images/bal/bal5.jpg">	
+			src="${product.image}">	
 		 	    <h4 id="search" class="col-md-4 title">${product.productName}</h4>
 				<h6 class="col-md-3">Adet</h6>
 				<h6 class="col-md-2 price">${product.price}</h6>
