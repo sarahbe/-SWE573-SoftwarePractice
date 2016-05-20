@@ -45,6 +45,7 @@ public class HomePageController {
   return new ModelAndView("index");
  }
  
+ 
  @RequestMapping( "/insert")
  public String inserData(@ModelAttribute User user) {
   if (user != null){

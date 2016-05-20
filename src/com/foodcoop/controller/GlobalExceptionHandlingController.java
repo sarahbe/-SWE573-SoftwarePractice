@@ -30,42 +30,42 @@ public class GlobalExceptionHandlingController {
 	return "exception";
 	}
 
-	  @ExceptionHandler(value = Exception.class)
-	    public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
-	        // If the exception is annotated with @ResponseStatus rethrow it and let
-	        // the framework handle it - like the OrderNotFoundException example
-	        // at the start of this post.
-	        // AnnotationUtils is a Spring Framework utility class.
-	        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null)
-	            throw e;
-
-	        // Otherwise setup and send the user to a default error-view.
-	        ModelAndView mav = new ModelAndView();
-	        mav.addObject("exception", e);
-	        mav.addObject("url", req.getRequestURL());
-	        mav.setViewName(DEFAULT_ERROR_VIEW);
-	        return mav;
-	    }
-	  
-	@ExceptionHandler(SupportInfoException.class)
-	public ModelAndView handleError(HttpServletRequest req, Exception exception)
-			throws Exception {
-
-		// Rethrow annotated exceptions or they will be processed here instead.
-		if (AnnotationUtils.findAnnotation(exception.getClass(),
-				ResponseStatus.class) != null)
-			throw exception;
-
-//		logger.error("Request: " + req.getRequestURI() + " raised " + exception);
-
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("exception", exception);
-		mav.addObject("url", req.getRequestURL());
-		mav.addObject("timestamp", new Date().toString());
-		mav.addObject("status", 500);
-
-		mav.setViewName("exception");
-		return mav;
-	}
+//	  @ExceptionHandler(value = Exception.class)
+//	    public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+//	        // If the exception is annotated with @ResponseStatus rethrow it and let
+//	        // the framework handle it - like the OrderNotFoundException example
+//	        // at the start of this post.
+//	        // AnnotationUtils is a Spring Framework utility class.
+//	        if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null)
+//	            throw e;
+//
+//	        // Otherwise setup and send the user to a default error-view.
+//	        ModelAndView mav = new ModelAndView();
+//	        mav.addObject("exception", e);
+//	        mav.addObject("url", req.getRequestURL());
+//	        mav.setViewName(DEFAULT_ERROR_VIEW);
+//	        return mav;
+//	    }
+//	  
+//	@ExceptionHandler(SupportInfoException.class)
+//	public ModelAndView handleError(HttpServletRequest req, Exception exception)
+//			throws Exception {
+//
+//		// Rethrow annotated exceptions or they will be processed here instead.
+//		if (AnnotationUtils.findAnnotation(exception.getClass(),
+//				ResponseStatus.class) != null)
+//			throw exception;
+//
+////		logger.error("Request: " + req.getRequestURI() + " raised " + exception);
+//
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("exception", exception);
+//		mav.addObject("url", req.getRequestURL());
+//		mav.addObject("timestamp", new Date().toString());
+//		mav.addObject("status", 500);
+//
+//		mav.setViewName("exception");
+//		return mav;
+//	}
 
 }
