@@ -11,15 +11,30 @@ import com.foodcoop.domain.Sale;
 import com.foodcoop.domain.SaleDetail;
 
 public class SaleServiceImpl implements SaleService {
-
-	@Autowired
-	SaleDao saledao;
+//
+//	@Autowired
+//	SaleDao saledao;
+//	
+//	@Autowired
+//	SaleDetailDao saledetaildao;
+	
+	private SaleDetailDao saledetaildao;
+	private SaleDao saledao;
 	
 	@Autowired
+<<<<<<< HEAD
 	SaleDetailDao saledetaildao;
 
 	@Autowired
 	ProductService productService;
+=======
+	public SaleServiceImpl(SaleDao saledao, SaleDetailDao saledetaildao){
+		this.saledao = saledao;
+		this.saledetaildao = saledetaildao;
+	}
+	
+	
+>>>>>>> dd5e841c0b1e83f6e770ee73fdacb0e8c102b43f
 	
 	@Override
 	public void insertData(Sale sale) {
