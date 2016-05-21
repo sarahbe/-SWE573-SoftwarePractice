@@ -38,7 +38,7 @@ public class SaleDaoImpl implements SaleDao{
 	    sql,parameterSourceFactory.newSqlParameterSource(sale), keyHolder
 	    );
 
-	  sale.setId((int) keyHolder.getKey());
+	  sale.setId(keyHolder.getKey().intValue());
 	  
 	 }
 	 

@@ -52,6 +52,8 @@ public class SaleController {
 			
 			saleService.saveSale(sale);
 			
+			
+			
 //			if (product != null) {
 //					Sale sale = new Sale();
 //					sale.setTotal(10);
