@@ -1,6 +1,7 @@
 package com.foodcoop.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +47,10 @@ public class SaleController {
 
 		@RequestMapping(value = "/saveInvoice",method = RequestMethod.POST)
 		public String inserData(@ModelAttribute("sale") Sale sale) {
-			ArrayList<SaleDetail> zz = sale.getSaleDetail();
+			
+			sale.setSaleDate(new Date());			
+			
+			saleService.saveSale(sale);
 			
 //			if (product != null) {
 //					Sale sale = new Sale();

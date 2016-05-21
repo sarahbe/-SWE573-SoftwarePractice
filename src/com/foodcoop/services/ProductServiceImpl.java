@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	ProducerDao producerdao;
-	
+
 	@Autowired
 	UnitDao unitdao;
 
@@ -36,7 +36,6 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getProductList() {
-		// return productdao.getProductList();
 		List<Product> productList;
 		try {
 			productList = productdao.getProductList();
@@ -59,7 +58,6 @@ public class ProductServiceImpl implements ProductService {
 		Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));
 		product.setProducerName(producer.getProducerName());
 		return product;
-		// return productdao.getProduct(id);
 	}
 
 	@Override

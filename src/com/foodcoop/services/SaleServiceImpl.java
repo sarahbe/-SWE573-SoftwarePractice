@@ -40,4 +40,21 @@ public class SaleServiceImpl implements SaleService {
 		return saledao.getSale(id);
 	}
 
+	
+	@Override
+	public void saveSale(Sale sale) {
+		calculateSale(sale);
+		
+		
+		
+	}
+
+	private void calculateSale(Sale sale) {
+		Double total = 0.0;
+		for(SaleDetail detail : sale.getSaleDetail()){
+			total += detail.getQuantity() * detail.getPrice();			
+		}		
+		sale.setTotal(total);
+		sale.setNet(sale.getTotal() - sale.getDiscount());
+	}
 }
