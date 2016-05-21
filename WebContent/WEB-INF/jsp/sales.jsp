@@ -82,7 +82,7 @@
 		 <img class="img-circle col-md-2" height="64px"
 			src="${product.image}">	
 		 	    <h4 id="search" class="col-md-4 title">${product.productName}</h4>
-				<h6 class="col-md-3">Adet</h6>
+				<h6 class="col-md-3">${product.unitName}</h6>
 				<h6 class="col-md-2 price">${product.price}</h6>
 		     <button class="col-md-2 add">Add To Basket</button>
 		 </div>

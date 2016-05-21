@@ -35,11 +35,9 @@ public class SaleController {
 	 public ModelAndView viewPage(@ModelAttribute Sale sale) {
 		 Map<String, List> map = new HashMap<String, List>();
 			List<Product> productList = productService.getProductList();
-
 			for (Product item : productList) {
 				item.getProducerName();
 			}
-
 			map.put("productList", productList);
 			return new ModelAndView("sales", "map", map);
 	 }
