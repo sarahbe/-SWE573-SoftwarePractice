@@ -6,65 +6,64 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.foodcoop.dao.ProducerDao;
 import com.foodcoop.dao.ProductDao;
+import com.foodcoop.dao.UnitDao;
 import com.foodcoop.domain.CustomGenericException;
 import com.foodcoop.domain.Producer;
 import com.foodcoop.domain.Product;
+import com.foodcoop.domain.Unit;
 
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
-	 @Autowired
-	 ProductDao productdao;
+	@Autowired
+	ProductDao productdao;
 
-	 @Autowired
-	 ProducerDao producerdao;
-	 
-	 @Override
-	 public void insertData(Product product) {
-		 productdao.insertData(product);
-	 }
+	@Autowired
+	ProducerDao producerdao;
 
-	 @Override
-	 public void deleteData(String id) {
-		 productdao.deleteData(id);
-	  
-	 }
+	@Autowired
+	UnitDao unitdao;
 
-	 @Override
-	 public List<Product> getProductList() {
-	  //return productdao.getProductList();
-		 List<Product> productList;
-		 try{
-		  productList = productdao.getProductList();  
-	  }
-	  catch(Exception ex)
-	  {
-		  throw new CustomGenericException("500",ex.toString());
-	  }
-	 
-	  
-	  for(Product product : productList ){
-	    	Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));	
-	    	product.setProducerName(producer.getProducerName());
-	  }
-	  
-	  return productList;
-	  
-	 }
+	@Override
+	public void insertData(Product product) {
+		productdao.insertData(product);
+	}
 
-	 
-	 @Override
-	 public Product getProduct(String id) {
-	  Product product = productdao.getProduct(id);	 
-	  Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));	
-  	product.setProducerName(producer.getProducerName());
-	  return product;
-	// return productdao.getProduct(id);
-	 }
+	@Override
+	public void deleteData(String id) {
+		productdao.deleteData(id);
 
-	 @Override
-	 public void updateData(Product product) {
-		 productdao.updateData(product);
-	  
-	 }
-	 
+	}
+
+	@Override
+	public List<Product> getProductList() {
+		List<Product> productList;
+		try {
+			productList = productdao.getProductList();
+		} catch (Exception ex) {
+			throw new CustomGenericException("500", ex.toString());
+		}
+		for (Product product : productList) {
+			Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));
+			Unit unit = unitdao.getUnit(Integer.toString(product.getIdUnit()));
+			product.setProducerName(producer.getProducerName());
+			product.setUnitName(unit.getUnit());
+		}
+		return productList;
+
+	}
+
+	@Override
+	public Product getProduct(String id) {
+		Product product = productdao.getProduct(id);
+		Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));
+		product.setProducerName(producer.getProducerName());
+		return product;
+	}
+
+	@Override
+	public void updateData(Product product) {
+		productdao.updateData(product);
+
+	}
+
 }

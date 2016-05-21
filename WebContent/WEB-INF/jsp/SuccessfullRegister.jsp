@@ -1,12 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-Your registeration is completed successfuly. Please pay the fees to one of the following admins in order to activate your account. 
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
+<mt:myTemplate title="Succeful Registeration">
+<jsp:attribute name="content">
+<center><h3> Your registration is completed successfully. Please pay the fees to one of the following admins in order to activate your account. </h3>
+</center>
+</jsp:attribute>
+</mt:myTemplate>

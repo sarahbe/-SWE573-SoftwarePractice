@@ -20,50 +20,96 @@
    
  <script type="text/javascript">
 					$(document).ready(function() {
-						$('search').quicksearch('list-group-item');
+						$("#search").quicksearch(".search_list");
 					});
 
 	$(document).ready(function() {
 		var i = 0;
+		var total = 0;		
+		var $summary =$("#summary")
+		
+		
+		
+		
 		$(".add").click( function() {
 			var item = $(this).parent().clone();//create a deep copy of the object
 			item.find(".add").remove(); //remove add button
 		 	var current = $(this).parent().data("item");
 			var price = $(this).parent().children(".price").html();
 			var $basket = $("#basket").find("[data-item='"+ current+ "']");
+			var value = 0;
+			
+
+			var prevQuantity = 0;
+			var quantity = 1;
+		
 			//if the item is already in the basket
 			if ($basket.length > 0) {
-				var quantity = 0;
-				$basket.find(".counter").html(
+			
+				$basket.find(".counter").val(
 			//increment counter
 				function(i, val) {
+					prevQuantity = val;
 					quantity = +val + 1;
 			        return quantity;
 			      });
-				$(".quantity").val(quantity);
+				//$(".quantity").val(quantity);
 			} //end if statement
-			else {
-			 
-		$('#basket').append("<div class='list-group-item row vertical-align item' data-item='" + current + "'>"
-		+ item.html()+ "<div class='counter col-md-2'>1</div></div>");
-		$('#basket').append("<input type='hidden' path='id' name='saleDetail[" + i + "].idProduct' value='"+ current +"'>");
-		$('#basket').append("<input type='hidden' path='price' name='saleDetail[" + i + "].price' value='"+ price +"'>");
-		$('#basket').append("<input type='hidden' path='quantity' class='quantity'  name='saleDetail[" + i + "].quantity' value='"+ 1 +"'>");
-		i+=1;
-		}
+			else {	 
+				$('#basket').append("<div class='list-group-item row vertical-align item' data-item='" + current + "'>"
+				+ item.html() + "<input type='number' onchange='onQuantityChange(this);this.oldvalue = this.value;' onfocus='this.oldvalue = this.value;' id='quantity' class='counter col-md-2' name='saleDetail[" + i + "].quantity' value='1'/>"				
+				+ "</div>");
+				$('#basket').append("<input type='hidden' path='id' name='saleDetail[" + i + "].idProduct' value='"+ current +"'>");
+				$('#basket').append("<input type='hidden' class='price' path='price' name='saleDetail[" + i + "].price' value='"+ price +"'>");
+// 				$('#basket').append("<input type='text' path='quantity' class='quantity'  name='saleDetail[" + i + "].quantity' value='"+ 1 +"'>");
+				i+=1;				
+				}
+			
+// 			var $prevQnt = 1;
+// // 			$("#quantity").on('focus', function(){
+// // 				$prevQnt = this.value;
+// // 			});
+			
+// 			$(".counter").change(function(){			
+// 				var qnt = this.value;
+// 				$summary.find(".total").html(
+// 						function(i, val) {
+// 							total = +val + (parseInt(price) * qnt) - (parseInt(price) * $prevQnt);
+// 					        return total;
+// 					      });
+// 				$prevQnt = this.value;
+// 			});
+			
+			var total = 0;
+			
+			$summary.find(".total").html(
+						function(i, val) {
+							total = +val + (parseInt(price) * quantity) - (parseInt(price) * prevQuantity);
+					        return total;
+					      });
+			$(".total").val(total);
 		});
 			
 		
 	});
+	
+	function onQuantityChange(txt){
+		var price = $(txt).parent().children(".price").html();
+		$("#summary").find(".total").html(
+				function(i, val) {
+					total = +val + (parseInt(price) * txt.value) - (parseInt(price) * txt.oldvalue);
+			        return total;
+			      });
+	}
+	
 				</script>
-
     
 <div class="container">
 <!-- Quicksearch bar  -->
 <div class="row">
 	<div class="input-group col-md-7">
 	  <span class="input-group-addon" id="basic-addon1">Search</span>
-	  <input type="text" class="form-control"
+	  <input type="text" class="form-control" id="search"
 						placeholder="Enter product name .."
 						aria-describedby="basic-addon1">
 	</div>
@@ -77,12 +123,12 @@
 		<div class="list-group ">	
 		 <c:forEach var="product" items="${map.productList}">
 		 
-		 <div class="list-group-item row vertical-align item"
+		 <div class="list-group-item row vertical-align item search_list"
 								data-item="${product.id}">
 		 <img class="img-circle col-md-2" height="64px"
 			src="${product.image}">	
-		 	    <h4 id="search" class="col-md-4 title">${product.productName}</h4>
-				<h6 class="col-md-3">Adet</h6>
+		 	    <h4 id="productName" class="col-md-4 title">${product.productName}</h4>
+				<h6 class="col-md-3">${product.unitName}</h6>
 				<h6 class="col-md-2 price">${product.price}</h6>
 		     <button class="col-md-2 add">Add To Basket</button>
 		 </div>
@@ -92,10 +138,10 @@
 	</div> <!-- End products list scroll -->
 	
 <!-- Invoice Summary  -->
-	<div class="col-md-4 col-md-offset-1 rcorners2"
+	<div class="col-md-4 col-md-offset-1 rcorners2" id="summary"
 					style="margin-bottom: 3em;">
-					
-					
+							summary
+					<div class='total'>0</div>		
 	</div>
 </div> <!-- End of row div -->
 	

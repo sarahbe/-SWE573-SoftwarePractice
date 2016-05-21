@@ -15,7 +15,7 @@ public class Product {
 	private Boolean valid;	
 	private int idUnit;
 	private double price;
-	
+	private String unitName; 
 	
 	private String producerName;
 	private MultipartFile file;
@@ -67,7 +67,6 @@ public class Product {
 
 	public void setIdProducer(int idProducer) {
 		this.idProducer = idProducer;
-		//this.getProducerName();
 	}
 
 	public String getOrigin() {
@@ -112,6 +111,14 @@ public class Product {
 		this.idUnit = idUnit;
 	}
 
+    public String getUnitName() {	
+		return this.unitName;
+	}
+
+	public void setUnitName(String unitName) {
+		this.unitName = unitName;
+	}
+	
 	public double getPrice() {	
 		return this.price;
 	}

@@ -68,23 +68,7 @@
 	<!-- declare beans -->
 	
 	<!-- declare datasource bean -->
-<!--     <bean -->
-<!-- 		id="dataSource" -->
-<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
-<!-- 		<property -->
-<!-- 			name="driverClassName" -->
-<!-- 			value="com.mysql.jdbc.Driver" /> -->
-<!-- 		<property -->
-<!-- 			name="url" -->
-<!-- 			value="jdbc:mysql://db4free.net:3306/foodcoop" /> -->
-<!-- 		<property -->
-<!-- 			name="username" -->
-<!-- 			value="sarahbe" /> -->
-<!-- 		<property -->
-<!-- 			name="password" -->
-<!-- 			value="Susu123" /> -->
-<!-- 	</bean> -->
-	  <bean
+    <bean
 		id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property
@@ -92,14 +76,30 @@
 			value="com.mysql.jdbc.Driver" />
 		<property
 			name="url"
-			value="jdbc:mysql://localhost:3306/foodcoop" />
+			value="jdbc:mysql://db4free.net:3306/foodcoop" />
 		<property
 			name="username"
-			value="root" />
+			value="sarahbe" />
 		<property
 			name="password"
 			value="Susu123" />
 	</bean>
+<!-- 	  <bean -->
+<!-- 		id="dataSource" -->
+<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 		<property -->
+<!-- 			name="driverClassName" -->
+<!-- 			value="com.mysql.jdbc.Driver" /> -->
+<!-- 		<property -->
+<!-- 			name="url" -->
+<!-- 			value="jdbc:mysql://localhost:3306/foodcoop" /> -->
+<!-- 		<property -->
+<!-- 			name="username" -->
+<!-- 			value="root" /> -->
+<!-- 		<property -->
+<!-- 			name="password" -->
+<!-- 			value="Susu123" /> -->
+<!-- 	</bean> -->
 	
 		<bean id="userDao"
 		class="com.foodcoop.dao.UserDaoImpl" /> 	
@@ -142,7 +142,7 @@
 
 
 	<bean
-		id="unitDao"
+		id="unitdao"
 		class="com.foodcoop.dao.UnitDaoImpl" />
 
 	<bean

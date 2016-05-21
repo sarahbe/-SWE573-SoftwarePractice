@@ -10,4 +10,5 @@ public interface SaleService {
 	 public void insertDetail(List<SaleDetail> saleDetails);
 	 public List<Sale> getSaleList();
 	 public Sale getSale(String id);
+	public void saveSale(Sale sale);
 }

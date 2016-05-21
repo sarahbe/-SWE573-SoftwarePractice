@@ -31,13 +31,22 @@ td {
 <script type="text/javascript"> 
 
 function validateRegistration(form) { 
+	var saveok = true;
 	var ok = true;
 
 	ok = validateString(this.firstName, 'Please enter you first name','errorFirstName');
+	if (ok == false)
+		saveok = false;
 	ok = validateString(this.lastName, 'Please enter you last name','errorLastName');
+	if (ok == false)
+		saveok = false;
 	ok = validateEmail(this.email, 'Please enter valid boun email address');
+	if (ok == false)
+		saveok = false;
 	ok = validateString(this.password, 'Please enter password','errorPassword');
-	return ok;
+	if (ok == false)
+		saveok = false;
+	return saveok;
 }
 
 function validateEmail(email, msg) {  

@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import com.foodcoop.domain.Sale;
 import com.foodcoop.domain.Stock;
@@ -26,14 +28,18 @@ public class SaleDaoImpl implements SaleDao{
 	 @Override
 	 public void insertData(Sale sale) {
 
+	  KeyHolder keyHolder = new GeneratedKeyHolder();
+		 
 	  String sql = "INSERT INTO sale "
 	    + "( idseller, idmember, saledate, total, discount, net,valid) VALUES ( :idseller, :idmember, NOW(), :total, :discount, :net,1)";
 	  NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 
 	  jdbcTemplate.update(
-	    sql,parameterSourceFactory.newSqlParameterSource(sale)
+	    sql,parameterSourceFactory.newSqlParameterSource(sale), keyHolder
 	    );
 
+	  sale.setId((int) keyHolder.getKey());
+	  
 	 }
 	 
 	 @Override
