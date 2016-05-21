@@ -10,6 +10,7 @@ import org.springframework.dao.DataAccessException;
 
 import com.foodcoop.dao.UserDao;
 import com.foodcoop.dao.UserRoleDao;
+import com.foodcoop.domain.CustomGenericException;
 import com.foodcoop.domain.Product;
 import com.foodcoop.domain.User;
 import com.foodcoop.domain.UserRole;
@@ -68,10 +69,18 @@ public class UserServiceImpl implements UserService  {
 	
 	@Override
 	public User getUser(String id) {
-		User user = userdao.getUser(id);
-		UserRole userRole = userRoleDao
-				.getUserRoleListByUser(Integer.parseInt(id)).get(0);
-		user.setIdRole(userRole.getRoleId());
+		User user = new User();;
+		try {
+			 user = userdao.getUser(id);	
+			UserRole userRole = userRoleDao
+					.getUserRoleListByUser(Integer.parseInt(id)).get(0);
+			user.setIdRole(userRole.getRoleId());
+		}
+		catch(Exception ex)
+		{
+			 throw new CustomGenericException("500",ex.toString());
+		}
+	
 		return user;
 	}
 

@@ -20,9 +20,7 @@ public class LoginLogoutController {
 	@RequestMapping(
 			value = "/login",
 			method = RequestMethod.GET)
-	public String getLoginPage(@RequestParam(
-			value = "error",
-			required = false) boolean error, ModelMap model) {
+	public String getLoginPage(@RequestParam(value = "error",required = false) boolean error, ModelMap model) {
 		if (error == true) {
 			model.put("error",
 					"You have entered an invalid username or password!");

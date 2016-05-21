@@ -8,7 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class HttpExceptionHandler {
 
 	@RequestMapping("/404")
-	public ModelAndView exception() {
+	public ModelAndView NotFoundexception() {
 		return new ModelAndView("404");
+	}
+	
+	@RequestMapping("/500")
+	public ModelAndView DatabaseException() {
+		return new ModelAndView("exception");
 	}
 }

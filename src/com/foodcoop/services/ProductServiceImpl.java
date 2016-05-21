@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.foodcoop.dao.ProducerDao;
 import com.foodcoop.dao.ProductDao;
+import com.foodcoop.domain.CustomGenericException;
 import com.foodcoop.domain.Producer;
 import com.foodcoop.domain.Product;
 
@@ -31,8 +32,15 @@ public class ProductServiceImpl implements ProductService{
 	 @Override
 	 public List<Product> getProductList() {
 	  //return productdao.getProductList();
-	  
-	  List<Product> productList = productdao.getProductList();
+		 List<Product> productList;
+		 try{
+		  productList = productdao.getProductList();  
+	  }
+	  catch(Exception ex)
+	  {
+		  throw new CustomGenericException("500",ex.toString());
+	  }
+	 
 	  
 	  for(Product product : productList ){
 	    	Producer producer = producerdao.getProducer(Integer.toString(product.getIdProducer()));	

@@ -35,10 +35,10 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-/WEB-INF/spring-servlet.xml
-</param-value>
-	</context-param>
-
+			/WEB-INF/spring-servlet.xml
+		</param-value>
+			</context-param>
+		
 
 
 	<listener>
@@ -51,6 +51,10 @@
 	<error-code>404</error-code>
 	<location>/404</location>
 	</error-page>
-
+	
+	<error-page>
+	    <error-code>500</error-code>
+	    <location>/exception</location>
+	</error-page>
 
 </web-app>
