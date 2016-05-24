@@ -12,21 +12,18 @@
 
    <http use-expressions="true">
         <csrf disabled="true"/>
-    <!--  
-        <intercept-url pattern="/" access="isAnonymous()" />
-        <intercept-url pattern="/index" access="isAnonymous()" />-->     
         <intercept-url pattern="/register" access="isAnonymous()" />
         <intercept-url pattern="/insert" access="isAnonymous()" />
-<!--         <intercept-url pattern="/getList" access="hasRole('ROLE_ADMIN')" /> -->
+        <intercept-url pattern="/getList" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/login" access="isAnonymous()" />
         <intercept-url pattern="/logout" access="isAnonymous()" />
-        <intercept-url pattern="/products" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-        <intercept-url pattern="/newProduct" access="hasAnyRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/sales" access="hasAnyRole('ROLE_ADMIN','ROLE_SALER')" />
-        <intercept-url pattern="/stock" access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKER')" />
-        <intercept-url pattern="/producers" access="hasRole('ROLE_USER')" />
-     <!--  <intercept-url pattern="/other/**" access="isAuthenticated()" />
-  --> 
+        <intercept-url pattern="/newProduct" access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKER')" />
+        <intercept-url pattern="/newProducer" access="hasAnyRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/unit" access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKER')" />
+         <intercept-url pattern="/category" access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKER')" />
+        <intercept-url pattern="/sales" access="hasAnyRole('ROLE_SALER')" />
+        <intercept-url pattern="/stock" access="hasAnyRole('ROLE_STOCKER')" />
+
         <access-denied-handler error-page="/deniedPage" />
  
         <form-login login-page='/login' login-processing-url="/j_spring_security_check"
@@ -41,15 +38,6 @@
 
 	<authentication-manager>
 		  <authentication-provider user-service-ref="customUserDetailsService">
-				<!-- 
-				  <user
-					name="user1"
-					password="12345"
-					authorities="ROLE_USER" />
-				<user
-					name="admin1"
-					password="12345"
-					authorities="ROLE_USER, ROLE_ADMIN" /> -->
 		</authentication-provider>
 	</authentication-manager>
 	<beans:bean id="customUserDetailsService"  class="com.foodcoop.services.CustomUserDetailsService"/> 

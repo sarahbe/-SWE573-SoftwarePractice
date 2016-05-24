@@ -4,9 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <mt:myTemplate title="Products">
 	<jsp:attribute name="content">
- 
+  <c:if test="${pageContext.request.userPrincipal.name != null}">
  <td colspan="2"><a href="newProduct">Add New Product</a></td>
+ </c:if>
 <div class="row">
+
 	   <c:forEach var="product" items="${map.productList}">
 	<div class="col-md-4">
 		<div class="row">

@@ -4,7 +4,9 @@ pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <mt:myTemplate title="Producers">
 <jsp:attribute name="content">
+ <c:if test="${pageContext.request.userPrincipal.name != null}">
 <a href="newProducer">Add New Producer</a>
+</c:if>
 <div class="row">
 	   <c:forEach var="producer" items="${map.producerList}">
 	<div class="col-md-4">

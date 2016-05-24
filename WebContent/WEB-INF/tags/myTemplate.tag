@@ -1,7 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ tag language="java" pageEncoding="UTF-8"%>
-<%@ attribute name="title" required="true" rtexprvalue="true" %>
+<%@ attribute name="title" required="true" rtexprvalue="true"%>
 <%@ attribute name="content" fragment="true"%>
 <!Doctype html>
 <html>
@@ -14,57 +14,55 @@
 
 <!-- Bootstrap -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<!-- <base href=" http://localhost:8080/FoodCoop/ ">  -->
 </head>
 <body>
-<header class="navbar navbar-static-top" >
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Project name</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="">Home</a></li>
-					<c:if test="${pageContext.request.userPrincipal.name == null}">
-					<li><a href="login">Login</a></li>
-					<li><a href="register">Register</a></li>
+	<header class="navbar navbar-static-top">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Project name</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="">Home</a></li>
+						<c:if test="${pageContext.request.userPrincipal.name == null}">
+							<li><a href="login">Login</a></li>
+							<li><a href="register">Register</a></li>
 						</c:if>
-				    <li><a href="products">Products</a></li>
-				    <li><a href="producers">Producers</a></li>				
-				      <c:if test="${pageContext.request.userPrincipal.name != null}">
-				     <li><a href="sales">Sales</a></li>
-   					 <li><a href="getList">User List</a></li>
-   					  <li><a href="logout">Logout</a></li>
-						  </c:if>
-<!-- 				     <li><a href="stock">Stock-taking</a></li> -->
-			     
-				     
-				</ul>
+						<li><a href="products">Products</a></li>
+						<li><a href="producers">Producers</a></li>
+						<c:if test="${pageContext.request.userPrincipal.name != null}">
+							<li><a href="sales">Sales</a></li>
+							<li><a href="getList">User List</a></li>
+							<li><a href="logout">Logout</a></li>
+						</c:if>
+
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 	</header>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="resources/js/jquery.quicksearch.min.js"></script>
+	<script src="resources/js/jquery.quicksearch.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resources/js/bootstrap.min.js"></script>
-	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
 	<div class="container">
-	<jsp:invoke fragment="content"></jsp:invoke>
+		<jsp:invoke fragment="content"></jsp:invoke>
 	</div>
 
-	
+
 </body>
 </html>
