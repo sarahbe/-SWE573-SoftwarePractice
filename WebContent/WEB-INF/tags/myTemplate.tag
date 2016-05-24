@@ -27,11 +27,11 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">My FoodCoop</a>
+					<a class="navbar-brand" >My FoodCoop</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="">Home</a></li>
+						<li class="active"><a href="../FoodCoop/">Home</a></li>
 						<c:if test="${pageContext.request.userPrincipal.name == null}">
 							<li><a href="login">Login</a></li>
 							<li><a href="register">Register</a></li>
