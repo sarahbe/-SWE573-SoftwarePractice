@@ -8,63 +8,54 @@
 <form:form method="get" modelAttribute="product">
 
 <table>
-<tr>
-<td>
-<table>
-<tr>
-<td>
-	<img alt="${product.producerName}" width="200px" height="220px"
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td>
+					<img alt="${product.producerName}" width="200px" height="220px"
 									src="${map.product.image}">
-
-</td>
-
-</tr>
-</table>
-</td>
-
-<td>
-<table>
-<tr>
-								<td>
-<h4>&nbsp;&nbsp;Producer  &nbsp;&nbsp; </h4>
-								</td>
-								<td>
-<c:out value="${map.product.producerName}" />
-</td>
-							</tr>
-							<tr>
-								<td>
-<h4>&nbsp;&nbsp;Origin &nbsp;&nbsp;  </h4>
-								</td>
-								
-								
-								<td>
-<c:out value="${map.product.origin}" />
-</td>
-							</tr>
-<tr>
-								<td>
-<h4>&nbsp;&nbsp;Description  &nbsp;&nbsp; </h4>
-								</td>
-								
-								
-								<td>
-<c:out value="${map.product.description}" />
-</td>
-							</tr>
-							<tr>
-								<td>
-<h4>&nbsp;&nbsp;Price &nbsp;&nbsp;  </h4>
-								</td>
-								
-								
-								<td>
-<c:out value="${map.product.price}" /> TL
-</td>
-							</tr>
-						</table>
 					</td>
-</tr>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td>
+					<h4>&nbsp;&nbsp;Producer  &nbsp;&nbsp; </h4>
+					</td>
+					<td>
+						<c:out value="${map.product.producerName}" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<h4>&nbsp;&nbsp;Origin &nbsp;&nbsp;  </h4>
+					</td>
+					<td>
+					<c:out value="${map.product.origin}" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<h4>&nbsp;&nbsp;Description  &nbsp;&nbsp; </h4>
+				</td>
+				<td>
+				<c:out value="${map.product.description}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<h4>&nbsp;&nbsp;Price &nbsp;&nbsp;  </h4>
+				</td>
+				<td>
+				<c:out value="${map.product.price}" /> TL
+				</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
 </table>
 
 <h3> Comments and rating to be added in version 2 </h3>

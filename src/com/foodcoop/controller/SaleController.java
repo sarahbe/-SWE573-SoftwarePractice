@@ -1,26 +1,17 @@
 package com.foodcoop.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.foodcoop.domain.Product;
 import com.foodcoop.domain.Sale;
-import com.foodcoop.domain.SaleDetail;
-import com.foodcoop.domain.Unit;
-import com.foodcoop.domain.User;
 import com.foodcoop.services.ProductService;
 import com.foodcoop.services.SaleService;
 
@@ -49,21 +40,7 @@ public class SaleController {
 			method = RequestMethod.POST)
 	public String inserData(@ModelAttribute("sale") Sale sale) {
 		sale.setSaleDate(new Date());
-		saleService.saveSale(sale);
-		// if (product != null) {
-		// Sale sale = new Sale();
-		// sale.setTotal(10);
-		// List<SaleDetail> saleDetailsList = new ArrayList<SaleDetail>();
-		// SaleDetail detail = new SaleDetail();
-		// saleService.insertData(sale);
-		// detail.setQuantity(1);
-		// //detail.setIdProduct(product.getId());
-		// detail.setIdSale(sale.getId());
-		// saleDetailsList.add(detail);,
-		// saleService.insertDetail(saleDetailsList);
-		//
-		// }
-
+		saleService.saveSale(sale);	
 		return "redirect:/sales";
 
 	}
