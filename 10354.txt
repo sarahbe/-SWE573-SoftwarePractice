@@ -114,11 +114,11 @@ Insert into SEC_MENU_FUNCTION
     0);
 COMMIT;
 
-9) burdakiler taşınacak
+9) burdakileri taşınacak
       SELECT *
         FROM  APP_LOCALIZATION where resourceset = 'selimiye.library.pnl.localization.pnlapproval' order by 1 
 
-10)  burdakiler taşınacak
+10)  burdakileri taşınacak
 SELECT *
         FROM  APP_LOCALIZATION where resourceset = 'pnl/pnlapproval.aspx' order by 1 
 
@@ -132,4 +132,4 @@ Insert into CUS_COMPANY_PARAMETER
  Values
    (91, TO_DATE('07/25/2012 09:51:42', 'MM/DD/YYYY HH24:MI:SS'), 1, TO_DATE('07/25/2012 09:51:45', 'MM/DD/YYYY HH24:MI:SS'), 1, 
     'PnlRegionalDirector', 'PNL Bölge Müdürü - Giriş yapmayan bayi uyarısı', 'PNL Bölge Müdürü - Giriş yapmayan bayi uyarısı', 'PNL Bölge Müdürü - Giriş yapmayan bayi uyarısı', 2, 
-    2);
+    1);

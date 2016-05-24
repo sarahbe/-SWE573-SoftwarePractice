@@ -11,4 +11,6 @@ public interface SaleService {
 	 public List<Sale> getSaleList();
 	 public Sale getSale(String id);
 	public void saveSale(Sale sale);
+	
+	public void calculateSale(Sale sale);
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.foodcoop.services.UserService;
 
 
-//@RequestMapping("/auth")
 @Controller
 public class LoginLogoutController {
 

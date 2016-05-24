@@ -99,10 +99,8 @@ public class ProductCotroller implements ResourceLoaderAware {
 			try {
 				byte[] bytes = file.getBytes();
 
-				// String rootPath = System.getProperty("user.dir");
 				Resource resource = resourceLoader
 						.getResource("/resources/uploads/");
-				// file.transferTo(resource.getFile());
 
 				String rootPath = resource.getURL().getPath();
 				String urlPath = "resources/uploads/" + fileName + ".jpg";

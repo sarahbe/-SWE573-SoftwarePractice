@@ -70,10 +70,10 @@ public class SaleServiceImpl implements SaleService {
 		
 	}
 
-	private void calculateSale(Sale sale) {
+	@Override
+	public void calculateSale(Sale sale) {
 		Double total = 0.0;
-		for(SaleDetail detail : sale.getSaleDetail()){
-			//Product product = productService.getProduct(Integer.toString(detail.getIdProduct()));			
+		for(SaleDetail detail : sale.getSaleDetail()){		
 			total += detail.getQuantity() * detail.getPrice();			
 		}		
 		sale.setTotal(total);
