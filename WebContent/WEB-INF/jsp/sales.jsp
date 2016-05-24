@@ -27,10 +27,7 @@
 		var i = 0;
 		var total = 0;		
 		var $summary =$("#summary")
-		
-		
-		
-		
+
 		$(".add").click( function() {
 			var item = $(this).parent().clone();//create a deep copy of the object
 			item.find(".add").remove(); //remove add button
@@ -53,32 +50,15 @@
 					quantity = +val + 1;
 			        return quantity;
 			      });
-				//$(".quantity").val(quantity);
 			} //end if statement
 			else {	 
 				$('#basket').append("<div class='list-group-item row vertical-align item' data-item='" + current + "'>"
 				+ item.html() + "<input type='number' onchange='onQuantityChange(this);this.oldvalue = this.value;' onfocus='this.oldvalue = this.value;' id='quantity' class='counter col-md-2' name='saleDetail[" + i + "].quantity' value='1'/>"				
 				+ "</div>");
 				$('#basket').append("<input type='hidden' path='id' name='saleDetail[" + i + "].idProduct' value='"+ current +"'>");
-				$('#basket').append("<input type='hidden' class='price' path='price' name='saleDetail[" + i + "].price' value='"+ price +"'>");
-// 				$('#basket').append("<input type='text' path='quantity' class='quantity'  name='saleDetail[" + i + "].quantity' value='"+ 1 +"'>");
+				$('#basket').append("<input type='hidden' class='price' path='price' name='saleDetail[" + i + "].price' value='"+ price +"'>");		
 				i+=1;				
 				}
-			
-// 			var $prevQnt = 1;
-// // 			$("#quantity").on('focus', function(){
-// // 				$prevQnt = this.value;
-// // 			});
-			
-// 			$(".counter").change(function(){			
-// 				var qnt = this.value;
-// 				$summary.find(".total").html(
-// 						function(i, val) {
-// 							total = +val + (parseInt(price) * qnt) - (parseInt(price) * $prevQnt);
-// 					        return total;
-// 					      });
-// 				$prevQnt = this.value;
-// 			});
 			
 			var total = 0;
 			
@@ -138,9 +118,11 @@
 	</div> <!-- End products list scroll -->
 	
 <!-- Invoice Summary  -->
-	<div class="col-md-4 col-md-offset-1 rcorners2" id="summary"
+	<div class="col-md-4 col-md-offset-1 " id="summary"
 					style="margin-bottom: 3em;">
-							summary
+							<h3>summary</h3>
+							
+							<h4>Total</h4>
 					<div class='total'>0</div>		
 	</div>
 </div> <!-- End of row div -->
@@ -150,8 +132,6 @@
 	<div class="row rcorners2">
 		<form:form id="wasbasket" method="post" action="saveInvoice" modelAttribute="sale" >
 		<div class="list-group" id="basket">
-		
-		
 		</div>
 		<input type="submit" value="SAVE"/> 
 		</form:form>

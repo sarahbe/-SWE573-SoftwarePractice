@@ -12,7 +12,7 @@ public class Sale {
 	private double total;
 	private double discount;
 	private double net;
-
+	private Boolean valid;
 	//
 	private ArrayList<SaleDetail> saleDetail;
 	
@@ -81,4 +81,11 @@ public class Sale {
 		this.net = net;
 	}
 	
+	public Boolean getValid() {
+		return this.valid;
+	}
+
+	public void setValid(Boolean valid) {
+		this.valid = valid;
+	}
 }

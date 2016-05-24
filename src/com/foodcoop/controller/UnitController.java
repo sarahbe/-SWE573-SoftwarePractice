@@ -15,7 +15,7 @@ public class UnitController {
 	 UnitService unitService;
 	 
 	 @RequestMapping("/unit")
-	 public ModelAndView registerUser(@ModelAttribute Unit unit) {
+	 public ModelAndView showUnit(@ModelAttribute Unit unit) {
 	
 	  return new ModelAndView("unit");
 	 }
