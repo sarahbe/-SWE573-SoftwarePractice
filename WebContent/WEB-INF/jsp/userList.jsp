@@ -94,7 +94,6 @@ function post(path, params, method) {
     <td class="heading">Gender</td>
     <td class="heading">Email</td>
     <td class="heading">Edit</td>
-    <td class="heading">Delete</td>
         <td class="heading">Member</td>
         <td class="heading">Saler</td>
         <td class="heading">Stocker</td>
@@ -109,7 +108,6 @@ function post(path, params, method) {
      <td>${user.email}</td>
      
      <td><a href="edit?id=${user.userId}">Edit</a></td>
-     <td><a href="delete?id=${user.userId}">Delete</a></td>
    
      <td>
      <div class="onoffswitch">
